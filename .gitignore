@@ -1,0 +1,6 @@
+/app
+/lexer
+/token
+/shunting_yard
+/compute
+.vscode

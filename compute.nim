@@ -104,13 +104,12 @@ proc compute*(input: LexedOutput): int =
   input.add(newParenthesesToken(right))
   input.convertAllToNumbers
   input = input.processParenthesis(input.low)
-  return cast[NumberToken](input[0]).value
+  return input[0].NumberToken.value
 
 
 when isMainModule:
   import lexer
-  echo "8/2".lexer.compute
-
-  doAssert("(0-4+2)+2+3".lexer.compute == 3)
-  doAssert("2*9".lexer.compute == 18)
-  doAssert("2*(-9)".lexer.compute == -18)
+  doAssert "8/2".lexer.compute == 4
+  doAssert "(0-4+2)+2+3".lexer.compute == 3
+  doAssert "2*9".lexer.compute == 18
+  doAssert "2*(-9)".lexer.compute == -18
